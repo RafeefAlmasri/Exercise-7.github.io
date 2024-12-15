@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-7</title>
+    <style>
+         @font-face{
+        font-family: My Font;
+        src: url(../Media/Lora-Italic-VariableFont_wght.ttf);
+    }
+        body {
+            font-family: MY Font;
+            margin: 20px;
+        }
+        input, button {
+            padding: 5px 10px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h3>JavaScript Program to Add Items to a Blank Array and Display them:</h3>
+    <input type="text" id="itemInput" placeholder="Enter a Number">
+    <button onclick="addItem()">Add</button>
+    <button onclick="displayItems()">Display</button>
+
+    <div id="output"></div>
+
+    <script>
+        let itemsArray = [];
+        function addItem() {
+            const input = document.getElementById("itemInput").value;
+            if (input.trim() !== "") {
+                itemsArray.push(input);
+                document.getElementById("itemInput").value = "";
+                alert("Item added!");
+            } else {
+                alert("Please enter a valid number.");
+            }
+        }
+
+        function displayItems() {
+            const outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "";
+
+            if (itemsArray.length === 0) {
+                outputDiv.innerHTML = "<p>No elements in the array.</p>";
+                return;
+            }
+            itemsArray.forEach((item, index) => {
+                outputDiv.innerHTML += `<p>Element ${index + 1} = ${item}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
